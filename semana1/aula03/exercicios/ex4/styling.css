@@ -1,0 +1,12 @@
+.buttonclass{
+    background-image: url("../ex2/Steins\ Gate.png");
+    border-radius: 15%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    border: solid 2px black;
+    margin-top: 20px;
+    width: 15%;
+    height: 150px;
+}

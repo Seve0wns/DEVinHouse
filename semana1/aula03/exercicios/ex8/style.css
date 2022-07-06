@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: blue;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+.navbar li{
+    display: inline;
+    width: 50vh;
+    background-color: black;
+}
+.navbar button{
+    height:40px;
+    width:110px;
+}
+.main{
+    margin-top: 40px;
+}

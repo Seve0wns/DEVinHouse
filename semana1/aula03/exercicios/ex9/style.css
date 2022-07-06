@@ -1,0 +1,4 @@
+.menu:hover{
+    background-color: chartreuse;
+    transition-duration: 300ms;
+}
