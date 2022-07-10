@@ -87,6 +87,15 @@ form{
     border: solid 2px;
     border-color: aquamarine;
 }
+footer{
+    background-color:darkslategrey;
+    padding:15px;
+    color:white;
+}
+.footInfo{
+    display: flex;
+    justify-content: space-between;
+}
 @media only screen and (min-width: 768px){
     .eventDesc{
         max-width: 35%;
