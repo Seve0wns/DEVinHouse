@@ -11,7 +11,7 @@ body{
     justify-content: flex-end;
     height:80px;
 }
-nav ul{
+ul{
     padding: 0;
 }
 nav li{
@@ -46,9 +46,46 @@ main{
     margin: 20px;
     font-size: 18px;
 }
-.eventDesc{
-    width: 25%;
+.eventList{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-.eventIm{
-    max-width: 70%;
+section{
+    margin-top: 60px;
+}
+.eventList li{
+    max-width: 30%;
+    min-width: 27%;
+    margin: 1%;
+    padding:2%;
+}
+@media only screen and (min-width: 768px){
+    .eventDesc{
+        max-width: 35%;
+        margin:1%;
+    }
+    .eventIm{
+        max-width: 70%;
+        min-width: 40%;
+        margin:4%;
+    }
+    .eventList li{
+        margin:0.2%;
+        padding: 0.5%;
+    }
+}
+@media only screen and (max-width: 768px){
+    .eventList{
+        flex-direction: column;
+    }
+    .eventList li{
+        max-width: 100%;
+    }
+    .eventCard{
+        flex-direction: column;
+    }
+    .eventIm{
+        max-width: 100%;
+    }
 }
