@@ -3,10 +3,19 @@ function liberarBebidas(guests){
         return Object.assign({openBar:guest.idade>17?true:false},guest)
     })
 }
+function separarCamarote(lista){
+    return lista.filter(guest=>guest.setor==="camarote");
+}
+function separarPista(lista){
+    return lista.filter(guest=>guest.setor==="pista");
+}
+function separarArquibancada(lista){
+    return lista.filter(guest=>guest.setor==="arquibancada");
+}
 let primeiro={
     nome: "Ryan",
     sobrenome: "Azevedo",
-    setor: "Camarote",
+    setor: "camarote",
     idade: 23
 };
 let segundo={
@@ -41,6 +50,8 @@ let sexto={
 };
 
 let convidados=[primeiro,segundo,terceiro,quarto,quinto,sexto];
-console.log(convidados)
 let convidadosComBebidasProcessada=liberarBebidas(convidados);
-console.log(convidados);
+let listaCamarote=separarCamarote(convidadosComBebidasProcessada);
+let listaPista=separarPista(convidadosComBebidasProcessada);
+let listaArquibancada=separarArquibancada(convidadosComBebidasProcessada);
+console.log(listaArquibancada,listaCamarote,listaPista);
