@@ -1,3 +1,8 @@
+function liberarBebidas(guests){
+    return guests.map(guest=>{
+        return Object.assign({openBar:guest.idade>17?true:false},guest)
+    })
+}
 let primeiro={
     nome: "Ryan",
     sobrenome: "Azevedo",
@@ -36,3 +41,6 @@ let sexto={
 };
 
 let convidados=[primeiro,segundo,terceiro,quarto,quinto,sexto];
+console.log(convidados)
+let convidadosComBebidasProcessada=liberarBebidas(convidados);
+console.log(convidados);
