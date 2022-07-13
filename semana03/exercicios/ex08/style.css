@@ -1,0 +1,19 @@
+h1{
+    background-color:cornflowerblue;
+    text-align: center;
+    color: aliceblue;
+}
+.convidados{
+    display: flex;
+    justify-content: space-between;
+    margin: 80px;
+}
+.lista{
+    border: solid 1px;
+    padding: 10px;
+    box-shadow: 1px 1px 3px;
+    padding-right: 35px;
+}
+.lista h3{
+    margin-top: -5px;
+}

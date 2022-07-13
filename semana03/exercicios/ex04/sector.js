@@ -54,4 +54,12 @@ let convidadosComBebidasProcessada=liberarBebidas(convidados);
 let listaCamarote=separarCamarote(convidadosComBebidasProcessada);
 let listaPista=separarPista(convidadosComBebidasProcessada);
 let listaArquibancada=separarArquibancada(convidadosComBebidasProcessada);
-console.log(listaArquibancada,listaCamarote,listaPista);
+listaCamarote.forEach(guest => {
+    document.getElementById("camarote").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}`
+});
+listaArquibancada.forEach(guest => {
+    document.getElementById("arqui").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}`
+});
+listaPista.forEach(guest => {
+    document.getElementById("pista").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}`
+});
