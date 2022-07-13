@@ -1,0 +1,9 @@
+body{
+    width:100vh;
+}
+.image{
+    width:100%;
+}
+img{
+    max-width:80%;
+}
