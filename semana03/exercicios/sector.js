@@ -34,3 +34,5 @@ let sexto={
     setor: "arquibancada",
     idade: 16
 };
+
+let convidados=[primeiro,segundo,terceiro,quarto,quinto,sexto];
