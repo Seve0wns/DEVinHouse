@@ -55,11 +55,14 @@ let listaCamarote=separarCamarote(convidadosComBebidasProcessada);
 let listaPista=separarPista(convidadosComBebidasProcessada);
 let listaArquibancada=separarArquibancada(convidadosComBebidasProcessada);
 listaCamarote.forEach(guest => {
-    document.getElementById("camarote").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}`
+    let emoji=guest.openBar?`&#127865;`:'';
+    document.getElementById("camarote").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}${emoji}`
 });
 listaArquibancada.forEach(guest => {
-    document.getElementById("arqui").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}`
+    let emoji=guest.openBar?`&#127865;`:'';
+    document.getElementById("arqui").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}${emoji}`
 });
 listaPista.forEach(guest => {
-    document.getElementById("pista").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}`
+    let emoji=guest.openBar?`&#127865;`:'';
+    document.getElementById("pista").innerHTML+=`<li>${guest.nome} ${guest.sobrenome}${emoji}`
 });
