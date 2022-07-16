@@ -11,11 +11,12 @@
     <div style="display: flex; flex-direction:column">
         <div style="display:flex; align-items: center;">
             <p>Operation:</p>
-            <div style="border: solid 1px" id="operation"></div>
+            <textarea name="operation" id="operation" cols="30" rows="2" style="border: solid 1px;  padding:10px;"></textarea>
         </div>
-        <div style="display:flex; align-items:center">
+        <button type="button" onclick="calculator()">Calcular</button>
+        <div style="display:flex; align-items:center;">
             <p>Result:</p>
-            <div id="result" style="border: solid 1px;"></div>
+            <div id="result" style="border: solid 1px; padding:10px;"></div>
         </div>
     </div>
     <script src="calc.js"></script>
