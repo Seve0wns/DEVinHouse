@@ -9,11 +9,11 @@ class Operation {
             this.right = null;
         }
         else if (this.operator === "(") {
-            let buffer = new Operation(equation.slice(opi + 1), priorityMod + 5);
+            let buffer = new Operation(equation.slice(opi + 1), priorityMod + 4);
             this.useBuffer(buffer);
         }
         else if (this.operator === ")") {
-            this.right = new Operation(equation.slice(opi + 1), priorityMod - 5);
+            this.right = new Operation(equation.slice(opi + 1), priorityMod - 4);
             this.left = parseInt(equation);
         }
         else {
@@ -36,7 +36,7 @@ class Operation {
         return this.solve();
     }
     rotate() {
-        if (this.priority < this.right.priority) {//solução parenteses
+        if (this.priority <= this.right.priority) {//solução parenteses
             this.right.rotate();
         }
         this.left = calc(this.operator, this.left, this.right.left);
@@ -83,9 +83,11 @@ function calc(op, n1, n2) {
 function calculator() {
     let input = document.getElementById("operation").value;
     let op = new Operation(input);
+    //console.log(op);
     document.getElementById("result").innerText = op.solve();
 }
 const regex = /\++|\-+|\*+|\/+|\^+|\(+|\)+/;
+//(3*(4+(1*2)))*2+1+1+1+1^2^3
 // const regex = /\++|\-+|\*+|\/+/;
 // let input = prompt("Qual a operação que deseja fazer?");//,operator=input.charAt(input.search(/\++|\-+|\*+|\/+/));
 //let numbers=input.split(operator);
