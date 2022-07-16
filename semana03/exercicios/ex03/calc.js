@@ -36,7 +36,7 @@ class Operation {
         return this.solve();
     }
     rotate() {
-        if (this.priority <= this.right.priority) {//solução parenteses
+        while (this.priority <= this.right.priority) {//solução parenteses
             this.right.rotate();
         }
         this.left = calc(this.operator, this.left, this.right.left);
