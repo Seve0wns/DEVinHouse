@@ -83,14 +83,11 @@ function calc(op, n1, n2) {
 function calculator() {
     let input = document.getElementById("operation").value;
     let op = new Operation(input);
-    //console.log(op);
-    document.getElementById("result").innerText = op.solve();
+    if(document.getElementById("debug").checked){
+        console.log(op);
+    }
+    else{
+        document.getElementById("result").innerText = op.solve();
+    }
 }
 const regex = /\++|\-+|\*+|\/+|\^+|\(+|\)+/;
-//(3*(4+(1*2)))*2+1+1+1+1^2^3
-// const regex = /\++|\-+|\*+|\/+/;
-// let input = prompt("Qual a operação que deseja fazer?");//,operator=input.charAt(input.search(/\++|\-+|\*+|\/+/));
-//let numbers=input.split(operator);
-// let op = new Operation(input);
-// document.getElementById("operation").innerText = input;
-// document.getElementById("result").innerText = op.solve();//calc(operator,parseInt(numbers[0]),parseInt(numbers[1]));
