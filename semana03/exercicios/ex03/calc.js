@@ -1,25 +1,31 @@
 class Operation {
     constructor(equation, priorityMod = 0) {
-        this.equation = equation;
-        let opi = equation.search(regex);
-        this.operator = equation.charAt(opi);
-        this.priority = this.setPriority() + priorityMod;
+        this.setInfo(equation,priorityMod);
         if (this.operator === "") {
-            this.left = parseInt(equation);
+            this.left = parseInt(this.equation);
             this.right = null;
         }
         else if (this.operator === "(") {
-            let buffer = new Operation(equation.slice(opi + 1), priorityMod + 4);
+            let buffer = new Operation(this.equation.slice(this.opi + 1), priorityMod + 4);
             this.useBuffer(buffer);
         }
         else if (this.operator === ")") {
-            this.right = new Operation(equation.slice(opi + 1), priorityMod - 4);
-            this.left = parseInt(equation);
+            this.right = new Operation(this.equation.slice(this.opi + 1), priorityMod - 4);
+            this.left = parseInt(this.equation);
         }
         else {
-            this.left = parseInt(equation);
-            this.right = new Operation(equation.slice(opi + 1), priorityMod);
+            this.left = parseInt(this.equation);
+            if(this.left<0){
+                this.setInfo(this.equation.slice(this.opi+1),priorityMod)
+            }
+            this.right = new Operation(this.equation.slice(this.opi + 1), priorityMod);
         }
+    }
+    setInfo(equation,priorityMod){
+        this.equation=equation;
+        this.opi = equation.search(regex);
+        this.operator = equation.charAt(this.opi);
+        this.priority = this.setPriority() + priorityMod;
     }
     useBuffer(buffer) {
         this.equation = buffer.equation;
