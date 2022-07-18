@@ -8,6 +8,8 @@ function fillAcc(){
     });
 }
 function withdraw(value,id){
+    id=parseInt(id);
+    value=parseInt(value);
     const acc=contasClientes.find(e=>e.id===id);
     if(value<=0){
         alert("Valor inválido!");
@@ -23,7 +25,9 @@ function withdraw(value,id){
     }
 }
 function deposit(value,id){
-    const acc=contasClientes.find(e=>e.id===id);
+    id=parseInt(id)
+    value=parseInt(value)
+    const acc=contasClientes.find(e=>e.id==id);
     if(value<=0){
         alert("Valor inválido!");
     }
@@ -31,6 +35,15 @@ function deposit(value,id){
         acc.saldo+=value;
         alert(`Depósito efetuado com sucesso!
         Novo saldo: ${acc.saldo}R$`);
+    }
+}
+function operate(){
+    console.log(document.getElementById("accounts").value)
+    if(document.getElementById("operations").value==="sacar"){
+        withdraw(document.getElementById("value").value,document.getElementById("accounts").value);
+    }
+    else{
+        deposit(document.getElementById("value").value,document.getElementById("accounts").value);
     }
 }
 const contasClientes = [

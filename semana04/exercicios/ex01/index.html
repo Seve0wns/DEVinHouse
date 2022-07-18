@@ -11,12 +11,12 @@
     <script src="index.js" defer></script>
     <label for="accounts">Escolha uma conta:</label>
     <select name="accounts" id="accounts"></select>
-    <input type="text" placeholder="Valor">
+    <input type="text" placeholder="Valor" id="value">
     <label for="operations">Selecione uma operação</label>
     <select name="operations" id="operations">
         <option value="sacar">Sacar</option>
         <option value="depositar">Depositar</option>
     </select>
-    <button type="button">Confirmar</button>
+    <button type="button" onclick="operate()">Confirmar</button>
 </body>
 </html>
