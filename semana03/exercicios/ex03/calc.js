@@ -9,35 +9,24 @@ class Operation {
         }
         else {
             this.left = parseInt(this.equation);
-            if(this.left<0){
-                opi=this.setInfo(nextEq,priorityMod)+1;
-                nextEq=this.equation.slice(opi+1);
+            if (this.left < 0) {
+                opi = this.setInfo(nextEq, priorityMod) + 1;
+                nextEq = this.equation.slice(opi + 1);
             }
-            if (this.operator === ")") {
-                let buffer = new Operation(this.left+nextEq, priorityMod-4)
-                this.useBuffer(buffer);
-            }
-            else if (this.operator === "") {
-                this.right = null;
-            }
-            else {
-                this.right = new Operation(nextEq, priorityMod);
+            switch (this.operator) {
+                case ")":
+                    let buffer = new Operation(this.left + nextEq, priorityMod - 4)
+                    this.useBuffer(buffer);
+                    break;
+                case "":
+                    this.right = null;
+                    break;
+                default:
+                    this.right = new Operation(nextEq, priorityMod)
             }
         }
-        /*else {
-            this.left = parseInt(this.equation);
-            if(this.left<0){
-                this.opi=this.setInfo(this.equation.slice(this.opi+1),priorityMod)+1
-            }
-            if(this.opi!==-1){
-            
-            else{
-                this.right=null;
-            }
-        }*/
     }
     setInfo(equation, priorityMod) {
-        //console.log(equation)
         let opi = equation.search(regex);
         this.operator = equation.charAt(opi);
         this.priority = this.setPriority() + priorityMod;
@@ -82,7 +71,6 @@ class Operation {
     }
 }
 function calc(op, n1, n2) {
-    //console.log("calc:"+n1+op+n2);
     if (!n2 && n2 !== 0) {//solução parenteses
         return n1;
     }
