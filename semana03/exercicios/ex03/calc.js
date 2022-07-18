@@ -1,31 +1,47 @@
 class Operation {
     constructor(equation, priorityMod = 0) {
-        this.setInfo(equation,priorityMod);
-        if (this.operator === "") {
-            this.left = parseInt(this.equation);
-            this.right = null;
-        }
-        else if (this.operator === "(") {
-            let buffer = new Operation(this.equation.slice(this.opi + 1), priorityMod + 4);
+        this.equation = equation;
+        let opi = this.setInfo(equation, priorityMod);
+        let nextEq = this.equation.slice(opi + 1);
+        if (this.operator === "(") {
+            let buffer = new Operation(nextEq, priorityMod + 4);
             this.useBuffer(buffer);
-        }
-        else if (this.operator === ")") {
-            this.right = new Operation(this.equation.slice(this.opi + 1), priorityMod - 4);
-            this.left = parseInt(this.equation);
         }
         else {
             this.left = parseInt(this.equation);
             if(this.left<0){
-                this.setInfo(this.equation.slice(this.opi+1),priorityMod)
+                opi=this.setInfo(nextEq,priorityMod)+1;
+                nextEq=this.equation.slice(opi+1);
             }
-            this.right = new Operation(this.equation.slice(this.opi + 1), priorityMod);
+            if (this.operator === ")") {
+                let buffer = new Operation(this.left+nextEq, priorityMod-4)
+                this.useBuffer(buffer);
+            }
+            else if (this.operator === "") {
+                this.right = null;
+            }
+            else {
+                this.right = new Operation(nextEq, priorityMod);
+            }
         }
+        /*else {
+            this.left = parseInt(this.equation);
+            if(this.left<0){
+                this.opi=this.setInfo(this.equation.slice(this.opi+1),priorityMod)+1
+            }
+            if(this.opi!==-1){
+            
+            else{
+                this.right=null;
+            }
+        }*/
     }
-    setInfo(equation,priorityMod){
-        this.equation=equation;
-        this.opi = equation.search(regex);
-        this.operator = equation.charAt(this.opi);
+    setInfo(equation, priorityMod) {
+        //console.log(equation)
+        let opi = equation.search(regex);
+        this.operator = equation.charAt(opi);
         this.priority = this.setPriority() + priorityMod;
+        return opi;
     }
     useBuffer(buffer) {
         this.equation = buffer.equation;
@@ -42,7 +58,7 @@ class Operation {
         return this.solve();
     }
     rotate() {
-        while (this.priority <= this.right.priority) {//solução parenteses
+        while (this.priority < this.right.priority) {//solução parenteses
             this.right.rotate();
         }
         this.left = calc(this.operator, this.left, this.right.left);
@@ -66,6 +82,7 @@ class Operation {
     }
 }
 function calc(op, n1, n2) {
+    //console.log("calc:"+n1+op+n2);
     if (!n2 && n2 !== 0) {//solução parenteses
         return n1;
     }
@@ -89,10 +106,10 @@ function calc(op, n1, n2) {
 function calculator() {
     let input = document.getElementById("operation").value;
     let op = new Operation(input);
-    if(document.getElementById("debug").checked){
+    if (document.getElementById("debug").checked) {
         console.log(op);
     }
-    else{
+    else {
         document.getElementById("result").innerText = op.solve();
     }
 }
