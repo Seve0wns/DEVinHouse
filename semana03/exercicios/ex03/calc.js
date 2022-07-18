@@ -30,13 +30,6 @@ class Operation {
         this.priority = this.setPriority() + priorityMod;
         return opi;
     }
-    useBuffer(buffer) {
-        this.equation = buffer.equation;
-        this.operator = buffer.operator;
-        this.priority = buffer.priority;
-        this.left = buffer.left;
-        this.right = buffer.right;
-    }
     solve() {
         if (this.operator === "") {
             return this.left;
