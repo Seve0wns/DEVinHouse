@@ -4,8 +4,7 @@ class Operation {
         let opi = this.setInfo(equation, priorityMod);
         let nextEq = this.equation.slice(opi + 1);
         if (this.operator === "(") {
-            let buffer = new Operation(nextEq, priorityMod + 4);
-            this.useBuffer(buffer);
+            Object.assign(this, new Operation(nextEq, priorityMod + 4))
         }
         else {
             this.left = parseInt(this.equation);
@@ -15,8 +14,7 @@ class Operation {
             }
             switch (this.operator) {
                 case ")":
-                    let buffer = new Operation(this.left + nextEq, priorityMod - 4)
-                    this.useBuffer(buffer);
+                    Object.assign(this, new Operation(this.left + nextEq, priorityMod - 4));
                     break;
                 case "":
                     this.right = null;
@@ -50,10 +48,8 @@ class Operation {
         while (this.priority < this.right.priority) {//solução parenteses
             this.right.rotate();
         }
-        this.left = calc(this.operator, this.left, this.right.left);
-        this.operator = this.right.operator;
-        this.priority = this.right.priority;
-        this.right = this.right.right;
+        this.right.left = calc(this.operator, this.left, this.right.left);
+        Object.assign(this, this.right);
     }
     setPriority() {
         if (this.operator === "" || this.operator === "(" || this.operator === ")") {
