@@ -22,6 +22,17 @@ function withdraw(value,id){
         Novo saldo: ${acc.saldo}R$`);
     }
 }
+function deposit(value,id){
+    const acc=contasClientes.find(e=>e.id===id);
+    if(value<=0){
+        alert("Valor inválido!");
+    }
+    else{
+        acc.saldo+=value;
+        alert(`Depósito efetuado com sucesso!
+        Novo saldo: ${acc.saldo}R$`);
+    }
+}
 const contasClientes = [
     {
         id: 1,
