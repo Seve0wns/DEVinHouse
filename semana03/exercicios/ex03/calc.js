@@ -3,25 +3,27 @@ class Operation {
         this.equation = equation;
         let opi = this.setInfo(equation, priorityMod);
         let nextEq = this.equation.slice(opi + 1);
+        this.setBranches(nextEq,priorityMod)
+    }
+    setBranches(nextEq,priorityMod) {
         if (this.operator === "(") {
-            Object.assign(this, new Operation(nextEq, priorityMod + 4))
+            Object.assign(this, new Operation(nextEq, priorityMod + 4));
+            return;
         }
-        else {
-            this.left = parseInt(this.equation);
-            if (this.left < 0) {
-                opi = this.setInfo(nextEq, priorityMod) + 1;
-                nextEq = this.equation.slice(opi + 1);
-            }
-            switch (this.operator) {
-                case ")":
-                    Object.assign(this, new Operation(this.left + nextEq, priorityMod - 4));
-                    break;
-                case "":
-                    this.right = null;
-                    break;
-                default:
-                    this.right = new Operation(nextEq, priorityMod)
-            }
+        this.left = parseInt(this.equation);
+        if (this.left < 0) {
+            opi = this.setInfo(nextEq, priorityMod) + 1;
+            nextEq = this.equation.slice(opi + 1);
+        }
+        switch (this.operator) {
+            case ")":
+                Object.assign(this, new Operation(this.left + nextEq, priorityMod - 4));
+                break;
+            case "":
+                this.right = null;
+                break;
+            default:
+                this.right = new Operation(nextEq, priorityMod);
         }
     }
     setInfo(equation, priorityMod) {
