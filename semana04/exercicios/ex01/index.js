@@ -47,6 +47,11 @@ function deposit(value, id) {
         Novo saldo: ${acc.saldo}R$`);
     }
 }
+function validatePass(typedPass,accPass){
+    accPass=parseInt(accPass);
+    accPass=contasClientes.find(e=>e.id===accPass);
+    return typedPass===accPass.senha;
+}
 function operate() {
     const elements = {
         operation: document.getElementById("operations"),
@@ -55,6 +60,9 @@ function operate() {
     }
     if (validateValues([elements.operation, elements.value, elements.account])) {
         return;
+    }
+    if(!validatePass(prompt("digite sua senha:"),elements.account.value)){
+       return alert("Senha inválida!");
     }
     if (elements.operation.value === "sacar") {
         withdraw(elements.value.value, elements.account.value);
@@ -67,16 +75,19 @@ const contasClientes = [
     {
         id: 1,
         nome: "Cliente 01",
-        saldo: 500
+        saldo: 500,
+        senha: "senha"
     },
     {
         id: 2,
         nome: "Cliente 02",
-        saldo: 3000
+        saldo: 3000,
+        senha: "1234"
     },
     {
         id: 3,
         nome: "Cliente 03",
-        saldo: 5000
+        saldo: 5000,
+        senha: "03041997"
     }
 ];
