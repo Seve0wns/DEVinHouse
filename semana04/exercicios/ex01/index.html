@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CoinKeep</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body onload="fillAcc()">
-    <script src="index.js" defer></script>
-    <label for="accounts">Escolha uma conta:</label>
-    <select name="accounts" id="accounts"></select>
-    <input type="number" placeholder="Valor" id="value">
-    <label for="operations">Selecione uma operação</label>
-    <select name="operations" id="operations">
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body onload="fillAcc()">
+    <main>
+      <label for="accounts" class="text item">Escolha uma conta:</label>
+      <select name="accounts" id="accounts" class="item field"></select>
+      <label for="value" class="text item mtop"
+        >Insira o valor da operação:</label
+      >
+      <div class="item writeField">
+        <input
+          type="text"
+          placeholder="Valor"
+          id="value"
+          class="field"
+          oninput="getFormat()"
+        />
+      </div>
+      <label for="operations" class="text item">Selecione uma operação:</label>
+      <select name="operations" id="operations" class="item field">
         <option value="sacar">Sacar</option>
         <option value="depositar">Depositar</option>
-    </select>
-    <button type="button" onclick="operate()">Confirmar</button>
-</body>
+      </select>
+      <div class="item writeField">
+        <button type="button" onclick="operate()" class="field">
+          Confirmar
+        </button>
+      </div>
+    </main>
+    <script src="index.js" defer></script>
+  </body>
 </html>
