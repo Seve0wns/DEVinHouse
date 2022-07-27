@@ -1,3 +1,4 @@
+import { Produto } from "../ex03/produto.js"
 class Pedido {
     numeroPedido;
     dataPedido;
@@ -10,5 +11,10 @@ class Pedido {
         this.dataPedido = new Date().toLocaleDateString();
         this.estaPago = false;
         this.listaProdutos = new Array();
+    }
+    adicionarProduto(produto) {
+        if (produto instanceof Produto) {
+            this.listaProdutos.push(produto);
+        }
     }
 }
