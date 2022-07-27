@@ -1,5 +1,5 @@
 import { Produto } from "../ex03/produto.js"
-class Pedido {
+export class Pedido {
     numeroPedido;
     dataPedido;
     estaPago;
