@@ -1,0 +1,12 @@
+.listaPedidos {
+  display: flex;
+  flex-direction: column;
+}
+.pedido {
+  border: 3px solid white;
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  color: aliceblue;
+}

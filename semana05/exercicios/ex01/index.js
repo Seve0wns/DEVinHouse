@@ -2,6 +2,8 @@ import { saudacao } from "./saudacao.js";
 import saudacaoEspecial from "../ex02/saudacao-especial.js";
 import { Produto } from "../ex03/produto.js";
 import { Pedido } from "../ex04/pedido.js";
+import * as dom from "../ex08/dom.js";
+
 console.log(saudacaoEspecial("Jhonathan"));
 const prods = [
     new Produto("sword", 600, true, 3),
@@ -19,3 +21,6 @@ pedidos[0].adicionarProduto(prods[1]);
 pedidos[0].adicionarProduto(prods[2]);
 pedidos[1].adicionarProduto(prods[3]);
 pedidos[1].adicionarProduto(prods[4]);
+
+const pedidosEl = document.getElementById("pedidos");
+pedidos.forEach(pedido => pedidosEl.appendChild(dom.elementPedido(pedido)));
