@@ -1,2 +1,3 @@
 import { saudacao } from "./saudacao.js";
-console.log(saudacao());
+import saudacaoEspecial from "../ex02/saudacao-especial.js";
+console.log(saudacaoEspecial("Jhonathan"));
