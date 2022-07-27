@@ -17,4 +17,9 @@ class Pedido {
             this.listaProdutos.push(produto);
         }
     }
+    calcularTotal() {
+        let total = 0;
+        this.listaProdutos.forEach(prod => total += prod.preco * prod.quantidade);
+        return total;
+    }
 }
