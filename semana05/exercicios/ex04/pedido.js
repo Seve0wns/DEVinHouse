@@ -1,4 +1,4 @@
-import { Produto } from "../ex03/produto.js"
+import { Produto } from "../ex03/Produto.js"
 export class Pedido {
     numeroPedido;
     dataPedido;
