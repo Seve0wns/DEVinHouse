@@ -3,7 +3,7 @@ import saudacaoEspecial from "../ex02/saudacao-especial.js";
 import { Produto } from "../ex03/Produto.js";
 import { Pedido } from "../ex04/Pedido.js";
 import * as dom from "../ex08/dom.js";
-import { sleep } from "../ex09/sleep.js"
+import { sleep, showTime } from "../ex09/async.js"
 
 console.log(saudacaoEspecial("Jhonathan"));
 const prods = [
@@ -25,4 +25,5 @@ pedidos[1].adicionarProduto(prods[4]);
 
 const pedidosEl = document.getElementById("pedidos");
 pedidos.forEach(pedido => pedidosEl.appendChild(dom.elementPedido(pedido)));
+showTime();
 sleep(3).then((result) => console.log(result));
