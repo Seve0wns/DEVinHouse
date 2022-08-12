@@ -1,0 +1,15 @@
+.navBar {
+  display: flex;
+  list-style-type: none;
+  color: white;
+}
+.navBar li {
+  margin: 0 10px;
+  line-height: 1.3em;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.navBar li:hover {
+  border-color: white;
+}

@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+.text1 {
+  font-size: 36px;
+  font-weight: 700;
+  width: 40%;
+}
+.img {
+  height: 100%;
+}
