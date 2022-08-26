@@ -3,7 +3,7 @@ export function Card({ name, image, desc, price, prepareTime }) {
   return (
     <div>
       <img src={image} alt={`imagem ilustrativa de ${name}`} />
-      <h1>{name}</h1>
+      <h3>{name}</h3>
       <span>
         {price.toLocaleString("pt-BR", {
           style: "currency",
